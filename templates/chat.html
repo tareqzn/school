@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Chat</title>  
+    <style> 
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #f2f2f2; 
+            color: #333; 
+            margin: 0; 
+            padding: 20px; 
+        } 
+
+        h1 { 
+            text-align: center; 
+            color: #4CAF50; 
+        } 
+
+        .chat-container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            border: 1px solid #ccc; 
+            border-radius: 8px; 
+            background-color: #fff; 
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+            padding: 20px; 
+        } 
+        
+        .return-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .return-button:hover {
+            background-color: #0056b3;
+        }
+
+        .message-list { 
+            max-height: 300px; 
+            overflow-y: auto; 
+            margin-bottom: 20px; 
+            padding: 10px; 
+            border: 1px solid #ddd; 
+            border-radius: 4px; 
+            background-color: #f9f9f9; 
+        } 
+
+        .message { 
+            margin: 5px 0; 
+            padding: 10px; 
+            border-radius: 4px; 
+            background-color: #E8E8E8; 
+        } 
+
+        form { 
+            display: flex; 
+            justify-content: space-between; 
+        } 
+
+        input[type="text"] { 
+            flex: 1; 
+            padding: 10px; 
+            margin-right: 10px; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+        } 
+
+        button { 
+            padding: 10px 15px; 
+            background-color: #4CAF50; 
+            color: white; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            transition: background-color 0.3s; 
+        } 
+
+        button:hover { 
+            background-color: #45a049; 
+        } 
+    </style> 
+</head>  
+<body>  
+    <div class="chat-container"> 
+        <h1>Chat</h1> 
+        <a href="http://127.0.0.1:5000/" class="return-button">Back to Home</a>
+        <div class="message-list"> 
+            {% for message in messages %} 
+                <div class="message"><strong>User {{ message[1] }}:</strong> {{ message[3] }}</div> 
+            {% endfor %} 
+        </div> 
+        <form method="post">  
+            <input type="text" name="message" placeholder="Type your message..." required>  
+            <input type="text" name="receiver_id" placeholder="Receiver ID" required>  
+            <button type="submit">Send</button>  
+        </form> 
+    </div> 
+</body>  
+</html>
+
